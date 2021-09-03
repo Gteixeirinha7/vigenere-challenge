@@ -10,6 +10,55 @@
 		<script src="index.js"></script>
 	</head>
 	<body>
-		
+        <div class="slds-grid slds-wrap" style="width: 450px; margin: auto">
+          <div class="slds-size_1-of-2">
+            <div class="slds-text-align_left slds-m-around_x-small">                
+		        <div class="slds-form-element">
+                  <label class="slds-form-element__label" for="valor"><abbr class="slds-required" title="required">* </abbr>Valor</label>
+                  <div class="slds-form-element__control">
+                    <textarea id="valor" placeholder="Valor a ser inserido" class="slds-textarea"></textarea>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="slds-size_1-of-2">
+            <div class="slds-text-align_left slds-m-around_x-small">
+		        <div class="slds-form-element">
+                  <label class="slds-form-element__label" for="chave"><abbr class="slds-required" title="required">* </abbr>Chave</label>
+                  <div class="slds-form-element__control">
+                    <textarea id="chave" placeholder="Chave a ser usada" class="slds-textarea"></textarea>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="slds-size_1-of-2">
+            <div class="slds-text-align_left slds-m-around_x-small slds-grid slds-wrap">
+                <div class="slds-size_1-of-2">
+                  <div class="slds-text-align_left slds-m-around_x-small">
+		              <div class="slds-form-element">
+                        <button class="slds-button slds-button_brand" onClick="calcularCifra('IN')">Encriptar</button>
+                      </div>
+                  </div>
+                </div>
+                <div class="slds-size_1-of-2">
+                  <div class="slds-text-align_left slds-m-around_x-small">
+		              <div class="slds-form-element">
+                        <button class="slds-button slds-button_brand" onClick="calcularCifra('OUT')">Decriptar</button>
+                      </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="slds-size_1-of-1">
+            <div class="slds-text-align_left slds-m-around_x-small">
+		        <div class="slds-form-element">
+                  <label class="slds-form-element__label" for="resultado">Resultado</label>
+                  <div class="slds-form-element__control">
+                    <textarea id="resultado" disabled="" class="slds-textarea"></textarea>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
 	</body>
 </html>
