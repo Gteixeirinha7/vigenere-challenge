@@ -3,12 +3,14 @@ function lerEntrada(texto) {
   texto.split('').forEach(function(item, index){
     if (item.charCodeAt() >= 65 && item.charCodeAt() <= 122)
         resultado[index] = item.charCodeAt() - (item.charCodeAt() < 97 ? 65 : 97);
+    else if(item.charCodeAt() == 32)
+        resultado[index] = item.charCodeAt();
   }, {resultado});
   return resultado;
 }
 
 function valEntr(valor){
-    if(valor && valor?.match(/^[a-zA-Z_]*$/))
+    if(valor && valor?.replaceAll(' ', '').match(/^[a-zA-Z]*$/))
         return lerEntrada(valor);
     else
         alert("Erro ao ler chave/entrada! Informe apenas letras de A-Z.");
@@ -17,9 +19,12 @@ function valEntr(valor){
 function processarChave(chNum, entrNum) {
   var chNumFinal = [];
 
-  if (chNum?.length == entrNum?.length) {
+  if (chNum?.length <= entrNum?.length) {
     entrNum?.forEach(function (item, index) {
-      chNumFinal[index] = chNum[index % chNum.length];
+      if(item != 32)
+        chNumFinal[index] = chNum[index % chNum.length];
+      else
+        chNumFinal[index] = item;
     },{ resultado });
   } else {
     alert("Erro! Informe uma chave de tamanho igual a entrada.");
@@ -45,8 +50,12 @@ function calcularCifra(func) {
 
   var result = "";
   entrNum?.forEach(function (item, index) {
-      var chvFin = valorValid(chaveFinal[index], item, getOp(func));
-      result += String.fromCharCode(getChvFin(chvFin, func) + 65);
+      if (chaveFinal[index] != 32){
+        var chvFin = valorValid(chaveFinal[index], item, getOp(func));
+        result += String.fromCharCode(getChvFin(chvFin, func) + 65);
+      }else{
+        result += String.fromCharCode(chaveFinal[index]);
+      }
   },{result });
 
   $("#resultado").val(result);
